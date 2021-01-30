@@ -6,6 +6,9 @@ services:
       - redis
     ports:
       - 4000:4000
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - PORT=4000
 
   redis:
     image: redis

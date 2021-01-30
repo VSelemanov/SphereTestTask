@@ -1,14 +1,15 @@
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
+import schema from './AppSchema';
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-app.post(
+app.use(
   '/graphql',
   graphqlHTTP({
-    // schema: MyGraphQLSchema,
+    schema,
     graphiql: true,
   }),
 );

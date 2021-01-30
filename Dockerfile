@@ -4,10 +4,10 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-COPY . .
+COPY ./dist ./dist
 
-RUN npm install
+RUN npm ci --production
 
 EXPOSE 4000
 
-CMD ["npx", "babel-node", "./src/index.js"]
+CMD ["npx", "node", "./dist/index.js"]
